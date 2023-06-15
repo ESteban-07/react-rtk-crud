@@ -26,7 +26,13 @@ export const taskSlice = createSlice({
       state.push(action.payload);
     },
     deleteTask: (state, action) => {
-      return state.filter((task) => task.id !== action.payload.id);
+      // in this case action.payload returns a string id
+      const taskFound = state.find((task) => task.id === action.payload);
+
+      if (taskFound) {
+        // The splice() method changes the contents of an array by removing or replacing existing elements
+        state.splice(state.indexOf(taskFound), 1);
+      }
     },
   },
 });

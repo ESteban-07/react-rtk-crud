@@ -4,13 +4,15 @@ import { deleteTask } from '../features/tasks/taskSlice';
 export default function TaskCard({ task }) {
   const dispatch = useDispatch();
 
-  console.log(task);
+  const handleDelete = (id) => {
+    dispatch(deleteTask(id));
+  };
 
   return (
     <div id={task.id}>
       <h3>{task.title}</h3>
       <p>{task.description}</p>
-      <button onClick={() => dispatch(deleteTask(task))}>Delete</button>
+      <button onClick={() => handleDelete(task.id)}>Delete</button>
     </div>
   );
 }

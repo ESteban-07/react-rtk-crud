@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import TaskCard from './TaskCard';
 
 export default function TasksList() {
   const tasks = useSelector((state) => state.tasks);
@@ -6,12 +7,7 @@ export default function TasksList() {
   return (
     <div>
       {tasks.map((task) => {
-        return (
-          <div key={task.id}>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-          </div>
-        );
+        return <TaskCard key={task.id} task={task} />;
       })}
     </div>
   );

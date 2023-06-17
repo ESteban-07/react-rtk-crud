@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 2px dotted red; */
+}
+
+@media (max-width: 767px) {
+  .col {
+    min-width: 100% !important;
+  }
+}

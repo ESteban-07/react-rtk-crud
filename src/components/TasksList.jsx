@@ -2,6 +2,9 @@ import { useSelector } from 'react-redux';
 import TaskCard from './TaskCard';
 import Header from './Header';
 import { useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function TasksList() {
   const tasks = useSelector((state) => state.tasks);
@@ -12,12 +15,18 @@ export default function TasksList() {
   }, [tasks]);
 
   return (
-    <div>
-      <Header />
+    <Container className="d-flex flex-column justify-content-center gap-4">
+      <Row>
+        <Col className="p-0">
+          <Header />
+        </Col>
+      </Row>
 
-      {tasks.map((task) => {
-        return <TaskCard key={task.id} task={task} />;
-      })}
-    </div>
+      <Row className="gap-4">
+        {tasks.map((task) => {
+          return <TaskCard key={task.id} task={task} />;
+        })}
+      </Row>
+    </Container>
   );
 }

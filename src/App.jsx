@@ -10,7 +10,7 @@ function App() {
       fluid
       className="min-vh-100 pt-4"
       style={{ backgroundColor: '#213555' }}>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-rtk-crud/">
         <Routes>
           <Route path="/" element={<TasksList />} />
           <Route path="/create-task" element={<TaskForm />} />
